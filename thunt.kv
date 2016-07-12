@@ -1,0 +1,128 @@
+#:kivy 1.7.2
+<RegScreen>:
+	BoxLayout:
+		spacing: 0
+		padding: [0,0,0,0]
+		orientation: 'vertical'
+		Label:
+			text:'TeamName'
+
+		TextInput:
+			id: teamname
+			multiline:False
+            font_size: 28
+
+        Label:
+			text:'Your ID'
+		TextInput:
+			id: idno
+			multiline:False
+            font_size: 28
+		Label:
+			text:'Password'
+		TextInput:
+			id: password
+			multiline:False
+            password:True
+            font_size: 28
+        Button:
+            text:'Register'
+            font_size: 28
+            on_press: root.register()
+<Dashboard>:
+
+	BoxLayout:
+		spacing: 10
+		padding: [30,30,30,30]
+	
+		orientation: 'vertical'
+		Label:
+			text:'Dashboard'
+			font_size:40
+		Button:
+			text:'Clue 1'
+			font_size: 28
+			on_press: root.GotoClue('clue1')
+		Button:
+			text:'Clue 2'
+			font_size: 28
+			on_press: root.GotoClue('clue2')
+<Clue1>:
+	BoxLayout:
+		spacing: 10
+		padding: [30,30,30,30]
+		orientation:'vertical'
+		Label:
+			text:'Clue1'
+			font_size: 20
+		Label:
+			text: 'Content'
+			font_size: 40
+		Button:
+			text:'TestSolved'
+			font_size: 28
+			on_press: root.Solved()
+		Button:
+			text:'Dashboard'
+			font_size: 28
+			on_press: root.Goto('Dashboard',"left")
+
+		Button:
+			text:'Next'
+			font_size: 28
+			on_press: root.Goto('clue2',"right")
+		Button:
+			text:'Prev'
+			font_size: 28
+			on_press: root.Goto('Dashboard',"left")
+<Clue2>:
+	BoxLayout:
+		spacing: 10
+		padding: [30,30,30,30]
+		orientation:'vertical'
+		Label:
+			text:'Clue2'
+			font_size: 20
+		Label:
+			text:'Content'
+			font_size: 40
+		Button:
+			text:'TestSolved'
+			font_size: 28
+			on_press: root.Solved()
+		Button:
+			text:'Dashboard'
+			font_size: 28
+			on_press: root.Goto('Dashboard',"left")
+		Button:
+			text:'Next'
+			font_size: 28
+			on_press: root.Goto('fin',"right")
+		Button:
+			text:'Prev'
+			font_size: 28
+			on_press: root.Goto('clue1',"left")
+<Finish>:
+	BoxLayout:
+		spacing: 10
+		padding: [30,30,30,30]
+		orientation:'vertical'
+		Label:
+			text:'Finished'
+			font_size: 20
+		Label:
+			text:'Congratulations!'
+			font_size: 36
+		Button:
+			text:'Register Stats'
+			font_size: 28
+		Button:
+			text:'Dashboard'
+			font_size: 28
+			on_press: root.Goto('Dashboard',"right")
+		Button:
+			text:'Prev'
+			font_size: 28
+			on_press: root.Goto('clue2',"right")
+
+
