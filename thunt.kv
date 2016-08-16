@@ -1,34 +1,63 @@
-#:kivy 1.7.2
+#:kivy 1.9.1
 <RegScreen>:
 	BoxLayout:
-		spacing: 0
-		padding: [0,0,0,0]
+		spacing: 10
+		padding: [30,30,30,30]
 		orientation: 'vertical'
 		Label:
 			text:'TeamName'
+			size_hint: [1,0.1]
 
 		TextInput:
 			id: teamname
 			multiline:False
             font_size: 28
+            size_hint: [1,0.2]
 
         Label:
 			text:'Your ID'
+			size_hint: [1,0.1]
 		TextInput:
 			id: idno
 			multiline:False
             font_size: 28
+            size_hint: [1,0.2]
 		Label:
 			text:'Password'
+			size_hint: [1,0.1]
 		TextInput:
 			id: password
 			multiline:False
             password:True
             font_size: 28
+            size_hint: [1,0.2]
+        Button:
+            text:'Next'
+            font_size: 28
+            on_press: root.next()
+            size_hint: [1,0.4]
+<RegScreen2>:
+	BoxLayout:
+		spacing: 10
+		padding: [30,30,30,30]
+		orientation: 'vertical'
+		Label:
+			id:team
+			size_hint: [1,0.1]
+		Label:
+			text:'Team Members'
+			size_hint: [1,0.1]
+		TextInput:
+			id: teammembers
+			multiline:True
+            font_size: 28
+            size_hint: [1,0.4]
+		
         Button:
             text:'Register'
             font_size: 28
-            on_press: root.register()
+            size_hint: [1,0.4]
+            on_press: root.register()            
 <Dashboard>:
 
 	BoxLayout:
@@ -124,5 +153,7 @@
 			text:'Prev'
 			font_size: 28
 			on_press: root.Goto('clue2',"right")
+
+
 
 
