@@ -17,6 +17,14 @@ sm=ScreenManager()
 
 class RegScreen(Screen):
 	
+	def next(self):
+		sm.add_widget(RegScreen2(name='RegScreen2'))
+		sm.transition = SlideTransition(direction="left")
+		sm.current='RegScreen2'
+		#Starting Game Here
+		
+
+class RegScreen2(Screen):
 	def register(self):
 		sm.add_widget(Dashboard(name='Dashboard'))
 		sm.transition = SlideTransition(direction="left")
@@ -24,11 +32,6 @@ class RegScreen(Screen):
 		#Starting Game Here
 		sm.add_widget(Clue1(name='clue1'))
 		Dashboard.SolvedCount=0
-
-
-
-
-
 
 class Dashboard(Screen):
 	SolvedCount=NumericProperty()
@@ -68,10 +71,10 @@ class Clue(Screen):
 	#pb=ProgressBar(max=2000)
 	#pb.value=distancefromclue()
 	lb=Label()
-	def distancefromclue(**kwargs):
-		lb.text={lat},{lon}.format(**kwargs)
-	gps.configure(on_location=distancefromclue)
-	gps.start()
+	#def distancefromclue(**kwargs):
+	#	lb.text={lat},{lon}.format(**kwargs)
+	#gps.configure(on_location=distancefromclue)
+	#gps.start()
 
 			
 		
@@ -126,4 +129,5 @@ class ThuntApp(App):
 
 if __name__ == '__main__':
     ThuntApp().run()
+
 
