@@ -1,34 +1,71 @@
-#:kivy 1.7.2
+#:kivy 1.9.1
 <RegScreen>:
-	BoxLayout:
-		spacing: 0
-		padding: [0,0,0,0]
+	BoxLayout:				
+		spacing: 10
+		padding: [30,30,30,30]
 		orientation: 'vertical'
 		Label:
 			text:'TeamName'
+			size_hint: [1,0.1]
+			halign: 'left'
 
 		TextInput:
 			id: teamname
 			multiline:False
             font_size: 28
+            size_hint: [1,0.2]
+            halign: 'left'
 
         Label:
 			text:'Your ID'
+			size_hint: [1,0.1]
 		TextInput:
 			id: idno
 			multiline:False
             font_size: 28
+            size_hint: [1,0.2]
+            halign: 'left'
 		Label:
 			text:'Password'
+			size_hint: [1,0.1]
+			halign: 'left'
 		TextInput:
 			id: password
 			multiline:False
             password:True
             font_size: 28
+            size_hint: [1,0.2]
+            halign: 'left'
+        Button:
+            text:'Next'
+            font_size: 28
+            background_color: [0, 0, 0.545098, 0.5]
+            on_press: root.next()
+            size_hint: [1,0.4]
+            
+<RegScreen2>:
+	BoxLayout:
+		spacing: 10
+		padding: [30,30,30,30]
+		orientation: 'vertical'
+		Label:
+			id:team
+			
+			size_hint: [1,0.1]
+		Label:
+			text:'Team Members'
+			size_hint: [1,0.1]
+		TextInput:
+			id: teammembers
+			multiline:True
+            font_size: 28
+            size_hint: [1,0.4]
+		
         Button:
             text:'Register'
             font_size: 28
-            on_press: root.register()
+            size_hint: [1,0.4]
+            on_press: root.register()            
 <Dashboard>:
 
 	BoxLayout:
@@ -102,6 +139,69 @@
 			text:'Prev'
 			font_size: 28
 			on_press: root.Goto('clue1',"left")
+<CompassTest>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            id: x_label
+            text: 'X: '
+
+        Label:
+            id: y_label
+            text: 'Y: '
+
+        Label:
+            id: z_label
+            text: 'Z: '
+
+        Label:
+            id: status
+            text: ''
+        Button:
+        	text: 'next'
+        	on_press; root.solved()    
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            padding: '4dp'
+
+            ToggleButton:
+                id: toggle_button
+                text: 'Start compass'
+                on_press: root.do_toggle	
+<AccelerometerTest>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            id: x_label
+            text: 'X: '
+
+        Label:
+            id: y_label
+            text: 'Y: '
+
+        Label:
+            id: z_label
+            text: 'Z: '
+
+        Label:
+            id: accel_status
+            text: ''
+
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            padding: '4dp'
+
+            ToggleButton:
+                id: toggle_button
+                text: 'Start accelerometer'
+                on_press: root.do_toggle()  
+        Button:
+        	text: 'next'
+        	on_press; root.solved()                      		
 <Finish>:
 	BoxLayout:
 		spacing: 10
